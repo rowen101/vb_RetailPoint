@@ -86,11 +86,31 @@ Public Class frmSummary
 
                     Select Case listreport.SelectedIndex
 
-                        Case 0, 1, 2
+                        Case 0
                             grp1.Text = listreport.Text
                             hidecontrols()
                             lbl1.Show()
+
                             lbl1.Text = "Select Preview or Print to show the report"
+
+                        Case 1
+                            grp1.Text = listreport.Text
+                            hidecontrols()
+                            lbl1.Show()
+                            lbl2.Show()
+                            'lbl1.Text = "Select Preview or Print to show the report"
+                            dtp1.Show()
+                            dtp2.Show()
+                            lbl1.Text = "From:"
+                            lbl2.Text = "To:"
+                        Case 2
+                            grp1.Text = listreport.Text
+                            hidecontrols()
+                            lbl1.Show()
+
+                            lbl1.Text = "Select Preview or Print to show the report"
+
+
                     End Select
 
                 Case "Sales Report"
@@ -227,7 +247,7 @@ Public Class frmSummary
                         Case 1
                             cryRpt.Load(Application.StartupPath & "\Reports\rpt_200_TopFastMovingItem.rpt")
                             With cryRpt
-                                .SetDataSource(FillReportForm("select * from v_TopFastMovingItem ORDER BY SalesQty DESC", "v_ItemMasterFileBelowStockLevel"))
+                                .SetDataSource(FillReportForm("select * from v_TopFastMovingItem where CreateDte between'" & dtp1.Text & "'and '" & dtp2.Text & "' ORDER BY SalesQty DESC", "v_ItemMasterFileBelowStockLevel"))
                                 .SetParameterValue("company", CompanyInfo.companyName)
                                 .SetParameterValue("address", CompanyInfo.companyAddress)
                                 .SetParameterValue("prepared", CurrUser.USER_FULLNAME)
@@ -273,7 +293,7 @@ Public Class frmSummary
                         Case 2 ''sales report per month
                             cryRpt.Load(Application.StartupPath & "\Reports\rpt_200_SalesReportAnnual.rpt")
                             With cryRpt
-                                .SetDataSource(FillReportForm("select * from v_MonthlySales ORDER BY SalesYr, SalesMonthNo", "v_ItemMasterFileBelowStockLevel"))
+                                .SetDataSource(FillReportForm("select * from v_MonthlySales where SalesYr='" & cbo1.Text & "'ORDER BY SalesYr, SalesMonthNo", "v_ItemMasterFileBelowStockLevel"))
                                 .SetParameterValue("company", CompanyInfo.companyName)
                                 .SetParameterValue("address", CompanyInfo.companyAddress)
                                 .SetParameterValue("prepared", CurrUser.USER_FULLNAME)

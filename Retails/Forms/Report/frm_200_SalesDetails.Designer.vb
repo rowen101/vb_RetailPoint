@@ -23,14 +23,20 @@ Partial Class frm_200_SalesDetails
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_200_SalesDetails))
         Me.dgList = New System.Windows.Forms.DataGridView()
+        Me.colItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colItemDescription = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colBrandType = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colQty = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colCost = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colSubAmt = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.lbltotalAmt = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -40,12 +46,6 @@ Partial Class frm_200_SalesDetails
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colItemDescription = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colBrandType = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colQty = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colCost = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colSubAmt = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -71,6 +71,66 @@ Partial Class frm_200_SalesDetails
         Me.dgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgList.Size = New System.Drawing.Size(739, 304)
         Me.dgList.TabIndex = 40
+        '
+        'colItemName
+        '
+        Me.colItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colItemName.DataPropertyName = "ItemName"
+        Me.colItemName.HeaderText = "Item Name"
+        Me.colItemName.Name = "colItemName"
+        Me.colItemName.ReadOnly = True
+        '
+        'colItemDescription
+        '
+        Me.colItemDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colItemDescription.DataPropertyName = "ItemDescription"
+        Me.colItemDescription.HeaderText = "Description"
+        Me.colItemDescription.Name = "colItemDescription"
+        Me.colItemDescription.ReadOnly = True
+        '
+        'colBrandType
+        '
+        Me.colBrandType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colBrandType.DataPropertyName = "BrandType"
+        Me.colBrandType.HeaderText = "Brand"
+        Me.colBrandType.Name = "colBrandType"
+        Me.colBrandType.ReadOnly = True
+        '
+        'colQty
+        '
+        Me.colQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colQty.DataPropertyName = "Qty"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.Format = "N0"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.colQty.DefaultCellStyle = DataGridViewCellStyle2
+        Me.colQty.HeaderText = "Qty"
+        Me.colQty.Name = "colQty"
+        Me.colQty.ReadOnly = True
+        '
+        'colCost
+        '
+        Me.colCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colCost.DataPropertyName = "Cost"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.colCost.DefaultCellStyle = DataGridViewCellStyle3
+        Me.colCost.HeaderText = "Cost"
+        Me.colCost.Name = "colCost"
+        Me.colCost.ReadOnly = True
+        '
+        'colSubAmt
+        '
+        Me.colSubAmt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colSubAmt.DataPropertyName = "SubAmt"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.Format = "N2"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.colSubAmt.DefaultCellStyle = DataGridViewCellStyle4
+        Me.colSubAmt.HeaderText = "Sub Total"
+        Me.colSubAmt.Name = "colSubAmt"
+        Me.colSubAmt.ReadOnly = True
         '
         'Button1
         '
@@ -158,70 +218,11 @@ Partial Class frm_200_SalesDetails
         Me.DataGridViewTextBoxColumn6.HeaderText = "Sub Total"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         '
-        'colItemName
-        '
-        Me.colItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colItemName.DataPropertyName = "ItemName"
-        Me.colItemName.HeaderText = "Item Name"
-        Me.colItemName.Name = "colItemName"
-        Me.colItemName.ReadOnly = True
-        '
-        'colItemDescription
-        '
-        Me.colItemDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colItemDescription.DataPropertyName = "ItemDescription"
-        Me.colItemDescription.HeaderText = "Description"
-        Me.colItemDescription.Name = "colItemDescription"
-        Me.colItemDescription.ReadOnly = True
-        '
-        'colBrandType
-        '
-        Me.colBrandType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colBrandType.DataPropertyName = "BrandType"
-        Me.colBrandType.HeaderText = "Brand"
-        Me.colBrandType.Name = "colBrandType"
-        Me.colBrandType.ReadOnly = True
-        '
-        'colQty
-        '
-        Me.colQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colQty.DataPropertyName = "Qty"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.Format = "N0"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.colQty.DefaultCellStyle = DataGridViewCellStyle2
-        Me.colQty.HeaderText = "Qty"
-        Me.colQty.Name = "colQty"
-        Me.colQty.ReadOnly = True
-        '
-        'colCost
-        '
-        Me.colCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colCost.DataPropertyName = "Cost"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "N2"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.colCost.DefaultCellStyle = DataGridViewCellStyle3
-        Me.colCost.HeaderText = "Cost"
-        Me.colCost.Name = "colCost"
-        Me.colCost.ReadOnly = True
-        '
-        'colSubAmt
-        '
-        Me.colSubAmt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colSubAmt.DataPropertyName = "SubAmt"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle4.Format = "N2"
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.colSubAmt.DefaultCellStyle = DataGridViewCellStyle4
-        Me.colSubAmt.HeaderText = "Sub Total"
-        Me.colSubAmt.Name = "colSubAmt"
-        Me.colSubAmt.ReadOnly = True
-        '
         'frm_200_SalesDetails
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.PaleTurquoise
         Me.ClientSize = New System.Drawing.Size(763, 422)
         Me.Controls.Add(Me.lbltotalAmt)
         Me.Controls.Add(Me.Label1)

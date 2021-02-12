@@ -148,6 +148,11 @@ Public Class frm_100_DRList
 
         Cursor = Cursors.Default
         connection.Close()
+        If dgList1.RowCount > 0 Then
+            ActivateCommands(FormState.ViewState)
+        ElseIf dgList1.RowCount > 1 Then
+            ActivateCommands(FormState.LoadState)
+        End If
     End Sub
 
     Sub RefreshRecord2(ByVal sql As String)
@@ -320,13 +325,19 @@ Public Class frm_100_DRList
 
     Sub DeleteRecord()
         If vbYes = MsgBox("Are you sure you want to delete this Item?", MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Confirm Delete") Then
+            Try
+                RunQuery("Delete tbl_100_DR where drCode='" & dgList1.Item("colDRCode", dgList1.CurrentCell.RowIndex).Value & "'")
 
-            RunQuery("Delete tbl_100_DR where drCode='" & dgList1.Item("colDRCode", dgList1.CurrentCell.RowIndex).Value + "'")
+                Call SaveAuditTrail("Delete DR code", dgList1.Item("colDRCode", dgList1.CurrentCell.RowIndex).Value)
+                Call RefreshRecord("sproc_100_dr_list " & False & ",'" & MainForm.tsSearch.Text & "'")
+                '  Call RefreshRecord2("sproc_100_dr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
+                SelectDataGridViewRow(dgList1)
+            Catch ex As Exception
 
-            Call SaveAuditTrail("Delete DR code", dgList1.Item("colDRCode", dgList1.CurrentCell.RowIndex).Value)
-            Call RefreshRecord("sproc_100_dr_list " & False & ",'" & MainForm.tsSearch.Text & "'")
-            '  Call RefreshRecord2("sproc_100_dr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
-            SelectDataGridViewRow(dgList1)
+            End Try
+
+
+
 
         End If
     End Sub
@@ -436,15 +447,7 @@ Public Class frm_100_DRList
         End If
     End Sub
 
-    Private Sub frm_000_ItemList_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        ResizeForm(Me)
-        picLogo.Image = MainForm.picLogo.Image
-        Call RefreshRecord("sproc_100_dr_list " & False & ",'" & MainForm.tsSearch.Text & "'")
-        Call RefreshRecord2("sproc_100_dr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
-        ActivateCommands(FormState.ViewState)
 
-
-    End Sub
 
 
     Private Sub frm_000_ItemList_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
@@ -506,48 +509,46 @@ Public Class frm_100_DRList
         Navigate(Pagination.LastPage)
     End Sub
 
-    Private Sub dgList_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
 
-    End Sub
-
-    Private Sub dgList1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgList1.CellContentClick
-
-    End Sub
 
     Private Sub DgList2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgList2.CellContentClick
+        Select Case e.ColumnIndex
+            Case 0
+                With frm_100_RH_ItemsList
+                    .myParent = Me
+                    .drcode = dgList2.Item("DataGridViewTextBoxColumn11", e.RowIndex).Value
+
+                    .ShowDialog()
+                End With
+            Case 1
+        End Select
 
     End Sub
 
     Private Sub TabControl1_Selected(sender As Object, e As TabControlEventArgs) Handles TabControl1.Selected
+        If e.TabPageIndex = 0 Then
+            If dgList1.RowCount > 0 Then
+                ActivateCommands(FormState.ViewState)
+            ElseIf dgList1.RowCount > 1 Then
+                ActivateCommands(FormState.LoadState)
+            End If
 
-        If e.TabPageIndex = 1 Then
-            ActivateCommands(FormState.LoadState)
         Else
-            ActivateCommands(FormState.ViewState)
+
+            ActivateCommands(FormState.LoadState)
         End If
     End Sub
 
-    Private Sub TsPagination_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles tsPagination.ItemClicked
+    Private Sub DgList1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgList1.CellContentClick
 
     End Sub
 
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+    Private Sub frm_100_DRList_Load(sender As Object, e As EventArgs) Handles Me.Load
+        ResizeForm(Me)
+        picLogo.Image = MainForm.picLogo.Image
+        Call RefreshRecord("sproc_100_dr_list " & False & ",'" & MainForm.tsSearch.Text & "'")
+        Call RefreshRecord2("sproc_100_dr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
+        ActivateCommands(FormState.LoadState)
 
-    End Sub
-
-    Private Sub dgList2_KeyDown(sender As Object, e As KeyEventArgs) Handles dgList2.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            'frm_100_ItemSelected.myParent = Me
-            'frm_100_ItemSelected.ItemId = ItemIdsub
-            'frm_100_ItemSelected.ItemName = txtitemname.Text
-            'frm_100_ItemSelected.ItemDescription = txtdescription.Text
-            'frm_100_ItemSelected.UOM = txtUOM.Text
-            'frm_100_ItemSelected.UnitPrice = txtUnitPrice.Text
-            'frm_100_ItemSelected.StockOH = txtOh.Text
-            'frm_100_ItemSelected.BrandType = txtbrand.Text
-            frm_100_RH_ItemsList.ShowDialog()
-
-
-        End If
     End Sub
 End Class
