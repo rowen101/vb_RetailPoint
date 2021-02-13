@@ -11,8 +11,8 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyTitle("Retail Point")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("Retail Point")> 
-<Assembly: AssemblyCopyright("Copyright © RetailsPoint@gronel 2015")> 
+<Assembly: AssemblyProduct("Retail Point")>
+<Assembly: AssemblyCopyright("Copyright © RetailsPoint@gronel 2021")>
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

@@ -213,6 +213,7 @@ Public Class frm_100_WR
     End Sub
 
     Sub SetEditValue()
+
         Dim WR As New tbl_100_WR
         With WR
             WRcode = myParent.dgList1.Item("colWRCode", myParent.dgList1.CurrentRow.Index).Value

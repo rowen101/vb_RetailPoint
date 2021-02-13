@@ -23,12 +23,15 @@ Partial Class frm_100_WRList
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_100_WRList))
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.tsPagination = New System.Windows.Forms.ToolStrip()
         Me.tsPageSize = New System.Windows.Forms.ToolStripButton()
         Me.tsFirst = New System.Windows.Forms.ToolStripButton()
@@ -40,21 +43,12 @@ Partial Class frm_100_WRList
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.dgList1 = New System.Windows.Forms.DataGridView()
-        Me.colWRCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.dgList2 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.picLogo = New System.Windows.Forms.PictureBox()
         Me.lblTitle = New System.Windows.Forms.Label()
+        Me.Column5 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -65,6 +59,16 @@ Partial Class frm_100_WRList
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colWRCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tsPagination.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -190,6 +194,190 @@ Partial Class frm_100_WRList
         Me.dgList1.Size = New System.Drawing.Size(834, 392)
         Me.dgList1.TabIndex = 40
         '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.dgList2)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(851, 404)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "POSTED"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'dgList2
+        '
+        Me.dgList2.AllowUserToAddRows = False
+        Me.dgList2.AllowUserToResizeRows = False
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.dgList2.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
+        Me.dgList2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgList2.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.dgList2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.dgList2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgList2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column5, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15})
+        Me.dgList2.Location = New System.Drawing.Point(8, 6)
+        Me.dgList2.MultiSelect = False
+        Me.dgList2.Name = "dgList2"
+        Me.dgList2.ReadOnly = True
+        Me.dgList2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.dgList2.RowHeadersWidth = 25
+        Me.dgList2.Size = New System.Drawing.Size(834, 392)
+        Me.dgList2.TabIndex = 41
+        '
+        'Panel1
+        '
+        Me.Panel1.BackgroundImage = CType(resources.GetObject("Panel1.BackgroundImage"), System.Drawing.Image)
+        Me.Panel1.Controls.Add(Me.picLogo)
+        Me.Panel1.Controls.Add(Me.lblTitle)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(859, 36)
+        Me.Panel1.TabIndex = 30
+        '
+        'picLogo
+        '
+        Me.picLogo.Location = New System.Drawing.Point(0, 0)
+        Me.picLogo.Name = "picLogo"
+        Me.picLogo.Size = New System.Drawing.Size(115, 36)
+        Me.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picLogo.TabIndex = 9
+        Me.picLogo.TabStop = False
+        '
+        'lblTitle
+        '
+        Me.lblTitle.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblTitle.AutoSize = True
+        Me.lblTitle.BackColor = System.Drawing.Color.Transparent
+        Me.lblTitle.Font = New System.Drawing.Font("Tahoma", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblTitle.Location = New System.Drawing.Point(245, 0)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(395, 33)
+        Me.lblTitle.TabIndex = 7
+        Me.lblTitle.Text = "Withdrawal Transaction List"
+        '
+        'Column5
+        '
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.NullValue = "View Items"
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle4
+        Me.Column5.FillWeight = 70.0!
+        Me.Column5.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Column5.HeaderText = ""
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column5.Text = "View Items"
+        Me.Column5.Width = 78
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "ItemName"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Item Name"
+        Me.DataGridViewTextBoxColumn1.MinimumWidth = 100
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "SpecificCode"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Specific Code"
+        Me.DataGridViewTextBoxColumn2.MinimumWidth = 100
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "SpecificDescription"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Item Specific Description"
+        Me.DataGridViewTextBoxColumn3.MinimumWidth = 100
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "TOCCode"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "TOC Code"
+        Me.DataGridViewTextBoxColumn4.MinimumWidth = 100
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "BrandType"
+        DataGridViewCellStyle6.Format = "N2"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle6
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Brand/Lens Type"
+        Me.DataGridViewTextBoxColumn5.MinimumWidth = 100
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "Usage"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Usage"
+        Me.DataGridViewTextBoxColumn6.MinimumWidth = 100
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "ActualUOM"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Actual UoM"
+        Me.DataGridViewTextBoxColumn7.MinimumWidth = 100
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "InventoryUOM"
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle7
+        Me.DataGridViewTextBoxColumn8.FillWeight = 60.0!
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Converted UoM"
+        Me.DataGridViewTextBoxColumn8.MinimumWidth = 100
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "StockLevelQty"
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle8
+        Me.DataGridViewTextBoxColumn9.FillWeight = 60.0!
+        Me.DataGridViewTextBoxColumn9.HeaderText = "Stock Level"
+        Me.DataGridViewTextBoxColumn9.MinimumWidth = 75
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "RackNo"
+        DataGridViewCellStyle9.Format = "N2"
+        DataGridViewCellStyle9.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle9
+        Me.DataGridViewTextBoxColumn10.HeaderText = "Rack No"
+        Me.DataGridViewTextBoxColumn10.MinimumWidth = 100
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
+        '
         'colWRCode
         '
         Me.colWRCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
@@ -233,39 +421,6 @@ Partial Class frm_100_WRList
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
         '
-        'TabPage2
-        '
-        Me.TabPage2.Controls.Add(Me.dgList2)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(851, 404)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "POSTED"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'dgList2
-        '
-        Me.dgList2.AllowUserToAddRows = False
-        Me.dgList2.AllowUserToResizeRows = False
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.dgList2.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
-        Me.dgList2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgList2.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.dgList2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.dgList2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgList2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15})
-        Me.dgList2.Location = New System.Drawing.Point(8, 6)
-        Me.dgList2.MultiSelect = False
-        Me.dgList2.Name = "dgList2"
-        Me.dgList2.ReadOnly = True
-        Me.dgList2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.dgList2.RowHeadersWidth = 25
-        Me.dgList2.Size = New System.Drawing.Size(834, 392)
-        Me.dgList2.TabIndex = 41
-        '
         'DataGridViewTextBoxColumn11
         '
         Me.DataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
@@ -302,143 +457,12 @@ Partial Class frm_100_WRList
         '
         Me.DataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.DataGridViewTextBoxColumn15.DataPropertyName = "wrTotalCost"
-        DataGridViewCellStyle4.Format = "N2"
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn15.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Format = "N2"
+        DataGridViewCellStyle5.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn15.DefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridViewTextBoxColumn15.HeaderText = "Total Cost"
         Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
         Me.DataGridViewTextBoxColumn15.ReadOnly = True
-        '
-        'Panel1
-        '
-        Me.Panel1.BackgroundImage = CType(resources.GetObject("Panel1.BackgroundImage"), System.Drawing.Image)
-        Me.Panel1.Controls.Add(Me.picLogo)
-        Me.Panel1.Controls.Add(Me.lblTitle)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(859, 36)
-        Me.Panel1.TabIndex = 30
-        '
-        'picLogo
-        '
-        Me.picLogo.Location = New System.Drawing.Point(0, 0)
-        Me.picLogo.Name = "picLogo"
-        Me.picLogo.Size = New System.Drawing.Size(115, 36)
-        Me.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picLogo.TabIndex = 9
-        Me.picLogo.TabStop = False
-        '
-        'lblTitle
-        '
-        Me.lblTitle.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblTitle.AutoSize = True
-        Me.lblTitle.BackColor = System.Drawing.Color.Transparent
-        Me.lblTitle.Font = New System.Drawing.Font("Tahoma", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.lblTitle.Location = New System.Drawing.Point(245, 0)
-        Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(395, 33)
-        Me.lblTitle.TabIndex = 7
-        Me.lblTitle.Text = "Withdrawal Transaction List"
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "ItemName"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Item Name"
-        Me.DataGridViewTextBoxColumn1.MinimumWidth = 100
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Visible = False
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "SpecificCode"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Specific Code"
-        Me.DataGridViewTextBoxColumn2.MinimumWidth = 100
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "SpecificDescription"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Item Specific Description"
-        Me.DataGridViewTextBoxColumn3.MinimumWidth = 100
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "TOCCode"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "TOC Code"
-        Me.DataGridViewTextBoxColumn4.MinimumWidth = 100
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "BrandType"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Brand/Lens Type"
-        Me.DataGridViewTextBoxColumn5.MinimumWidth = 100
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "Usage"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Usage"
-        Me.DataGridViewTextBoxColumn6.MinimumWidth = 100
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "ActualUOM"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Actual UoM"
-        Me.DataGridViewTextBoxColumn7.MinimumWidth = 100
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "InventoryUOM"
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle5
-        Me.DataGridViewTextBoxColumn8.FillWeight = 60.0!
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Converted UoM"
-        Me.DataGridViewTextBoxColumn8.MinimumWidth = 100
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "StockLevelQty"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle6
-        Me.DataGridViewTextBoxColumn9.FillWeight = 60.0!
-        Me.DataGridViewTextBoxColumn9.HeaderText = "Stock Level"
-        Me.DataGridViewTextBoxColumn9.MinimumWidth = 75
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "RackNo"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "Rack No"
-        Me.DataGridViewTextBoxColumn10.MinimumWidth = 100
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        Me.DataGridViewTextBoxColumn10.ReadOnly = True
         '
         'frm_100_WRList
         '
@@ -497,9 +521,10 @@ Partial Class frm_100_WRList
     Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column4 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents dgList2 As System.Windows.Forms.DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn11 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn12 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn13 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn14 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn15 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewButtonColumn
+    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
 End Class

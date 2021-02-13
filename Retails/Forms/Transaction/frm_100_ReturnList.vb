@@ -148,6 +148,7 @@ Public Class frm_100_ReturnList
 
         Cursor = Cursors.Default
         connection.Close()
+        gridlistview1()
     End Sub
 
     Sub RefreshRecord2(ByVal sql As String)
@@ -320,13 +321,18 @@ Public Class frm_100_ReturnList
 
     Sub DeleteRecord()
         If vbYes = MsgBox("Are you sure you want to delete this Item?", MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Confirm Delete") Then
+            Try
+                RunQuery("Delete tbl_100_Return where returnId=" & dgList1.Item("colreturnId", dgList1.CurrentCell.RowIndex).Value)
 
-            RunQuery("Delete tbl_100_Return where drCode=" & dgList1.Item("colreturnId", dgList1.CurrentCell.RowIndex).Value)
+                Call SaveAuditTrail("Delete Return Code", dgList1.Item("colreturnId", dgList1.CurrentCell.RowIndex).Value)
+                Call RefreshRecord("sproc_100_return_list " & False & ",'" & MainForm.tsSearch.Text & "'")
+                '  Call RefreshRecord2("sproc_100_return_list " & True & ",'" & MainForm.tsSearch.Text & "'")
+                SelectDataGridViewRow(dgList1)
+                gridlistview1()
+            Catch ex As Exception
 
-            Call SaveAuditTrail("Delete Return Code", dgList1.Item("colreturnId", dgList1.CurrentCell.RowIndex).Value)
-            Call RefreshRecord("sproc_100_return_list " & False & ",'" & MainForm.tsSearch.Text & "'")
-            '  Call RefreshRecord2("sproc_100_return_list " & True & ",'" & MainForm.tsSearch.Text & "'")
-            SelectDataGridViewRow(dgList1)
+            End Try
+
 
         End If
     End Sub
@@ -439,7 +445,7 @@ Public Class frm_100_ReturnList
         picLogo.Image = MainForm.picLogo.Image
         Call RefreshRecord("sproc_100_return_list " & False & ",'" & MainForm.tsSearch.Text & "'")
         Call RefreshRecord2("sproc_100_return_list " & True & ",'" & MainForm.tsSearch.Text & "'")
-        ActivateCommands(FormState.ViewState)
+        ActivateCommands(FormState.LoadState)
 
 
     End Sub
@@ -504,16 +510,47 @@ Public Class frm_100_ReturnList
         Navigate(Pagination.LastPage)
     End Sub
 
-
+    Public Function gridlistview1()
+        If dgList1.RowCount > 0 Then
+            ActivateCommands(FormState.ViewState)
+        ElseIf dgList1.RowCount > 1 Then
+            ActivateCommands(FormState.LoadState)
+        End If
+    End Function
     Private Sub TabControl1_Selected(sender As Object, e As TabControlEventArgs) Handles TabControl1.Selected
         If e.TabPageIndex = 1 Then
             ActivateCommands(FormState.LoadState)
         Else
-            ActivateCommands(FormState.ViewState)
+            'ActivateCommands(FormState.ViewState)
+            gridlistview1()
         End If
     End Sub
 
-    Private Sub dgList1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgList1.CellContentClick
+    Private Sub DgList2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgList2.CellContentClick
+        Select Case e.ColumnIndex
+            Case 0
+                With frm_100_RH_ItemsList
+
+                    .maincode = dgList2.Item("DataGridViewTextBoxColumn11", e.RowIndex).Value
+                    .transactionName = "RETURN ID"
+                    .ShowDialog()
+                End With
+            Case 1
+        End Select
+    End Sub
+
+    Private Sub dgList1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgList1.CellClick
+        Dim index As Integer
+        Dim selectedRow As DataGridViewRow
+
+        Try
+            index = e.RowIndex
+            selectedRow = dgList1.Rows(index)
+            ActivateCommands(FormState.ViewState)
+        Catch ex As Exception
+
+        End Try
+
 
     End Sub
 End Class

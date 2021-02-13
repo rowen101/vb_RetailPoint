@@ -148,6 +148,7 @@ Public Class frm_100_DoctorPayList
 
         Cursor = Cursors.Default
         connection.Close()
+        gridviewshow()
     End Sub
     Private Function StrPtr(ByVal obj As Object) As Integer
         Dim Handle As GCHandle = _
@@ -262,12 +263,16 @@ Public Class frm_100_DoctorPayList
 
     Sub DeleteRecord()
         If vbYes = MsgBox("Are you sure you want to delete this Item?", MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Confirm Delete") Then
+            Try
+                RunQuery("Delete tbl_100_DoctorsPay where Id=" & dgList.Item("colId", dgList.CurrentCell.RowIndex).Value)
 
-            RunQuery("Delete tbl_100_DoctorsPay where Id=" & dgList.Item("colId", dgList.CurrentCell.RowIndex).Value)
+                Call SaveAuditTrail("Delete Payout ", dgList.Item("colId", dgList.CurrentCell.RowIndex).Value)
+                Call RefreshRecord("sproc_100_doctors_list'" & MainForm.tsSearch.Text & "'")
+                SelectDataGridViewRow(dgList)
+            Catch ex As Exception
 
-            Call SaveAuditTrail("Delete Payout ", dgList.Item("colId", dgList.CurrentCell.RowIndex).Value)
-            Call RefreshRecord("sproc_100_doctors_list'" & MainForm.tsSearch.Text & "'")
-            SelectDataGridViewRow(dgList)
+            End Try
+
 
         End If
     End Sub
@@ -373,7 +378,7 @@ Public Class frm_100_DoctorPayList
         ResizeForm(Me)
         picLogo.Image = MainForm.picLogo.Image
         Call RefreshRecord("sproc_100_doctors_list'" & MainForm.tsSearch.Text & "'")
-        ActivateCommands(FormState.ViewState)
+        ActivateCommands(FormState.LoadState)
 
 
     End Sub
@@ -437,8 +442,22 @@ Public Class frm_100_DoctorPayList
     Private Sub tsLast_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsLast.Click
         Navigate(Pagination.LastPage)
     End Sub
-
+    Public Sub gridviewshow()
+        If dgList.RowCount > 0 Then
+            ActivateCommands(FormState.ViewState)
+        ElseIf dgList.RowCount > 1 Then
+            ActivateCommands(FormState.LoadState)
+        End If
+    End Sub
     Private Sub dgList_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgList.CellContentClick
+        Dim Index As Integer
+        Dim selectedRow As DataGridViewRow
+        Try
+            Index = e.RowIndex
+            selectedRow = dgList.Rows(Index)
+            ActivateCommands(FormState.ViewState)
+        Catch ex As Exception
 
+        End Try
     End Sub
 End Class

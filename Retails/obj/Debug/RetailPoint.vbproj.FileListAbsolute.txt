@@ -69,7 +69,6 @@ C:\Users\rowen\Documents\vb_RetailPoint\Retails\bin\Debug\RetailPoint.pdb
 C:\Users\rowen\Documents\vb_RetailPoint\Retails\bin\Debug\RetailPoint.xml
 C:\Users\rowen\Documents\vb_RetailPoint\Retails\bin\Debug\System.Web.Services.dll
 C:\Users\rowen\Documents\vb_RetailPoint\Retails\bin\Debug\stdole.dll
-C:\Users\rowen\Documents\vb_RetailPoint\Retails\obj\Debug\RetailPoint.vbprojAssemblyReference.cache
 C:\Users\rowen\Documents\vb_RetailPoint\Retails\obj\Debug\RetailPoint.ErrorProviderExtended.resources
 C:\Users\rowen\Documents\vb_RetailPoint\Retails\obj\Debug\RetailPoint.frmDeleteItem.resources
 C:\Users\rowen\Documents\vb_RetailPoint\Retails\obj\Debug\RetailPoint.frmPicFrame.resources
@@ -125,3 +124,4 @@ C:\Users\rowen\Documents\vb_RetailPoint\Retails\obj\Debug\RetailPoint.vbproj.Cop
 C:\Users\rowen\Documents\vb_RetailPoint\Retails\obj\Debug\RetailPoint.exe
 C:\Users\rowen\Documents\vb_RetailPoint\Retails\obj\Debug\RetailPoint.xml
 C:\Users\rowen\Documents\vb_RetailPoint\Retails\obj\Debug\RetailPoint.pdb
+C:\Users\rowen\Documents\vb_RetailPoint\Retails\obj\Debug\RetailPoint.vbprojAssemblyReference.cache

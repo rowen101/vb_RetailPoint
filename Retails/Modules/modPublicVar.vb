@@ -12,7 +12,7 @@ Module modPublicVar
     ' changes, modification
     Public Const VersionChanges As String = "UPdate supplier"
     ' the date of new version
-    Public Const VersionDate As String = "1.1.7"
+    Public Const VersionDate As String = "1.1.8"
     ' this is the revision number,Ex. 2, "" if no revision
     Public Const Revision As String = "r6"
     Public Const Version As String = "v." & VersionDate & " "

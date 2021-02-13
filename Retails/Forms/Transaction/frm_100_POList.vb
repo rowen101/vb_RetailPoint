@@ -148,6 +148,7 @@ Public Class frm_100_POList
 
         Cursor = Cursors.Default
         connection.Close()
+        gridviewrow()
     End Sub
     Private Function StrPtr(ByVal obj As Object) As Integer
         Dim Handle As GCHandle = _
@@ -262,17 +263,21 @@ Public Class frm_100_POList
 
     Sub DeleteRecord()
         If vbYes = MsgBox("Are you sure you want to delete this Item?", MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Confirm Delete") Then
+            Try
+                If isRecordExist("Select pocode from tbl_100_DR where pocode='" & dgList.Item("colPoCode", dgList.CurrentCell.RowIndex).Value & "'") Then
+                    MessageBox.Show("Enable to Delete this PO is used by another transaction!", "Prompt", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    RunQuery("Delete tbl_100_PO where poCode='" & dgList.Item("colPoCode", dgList.CurrentCell.RowIndex).Value + "'")
+                End If
 
-            If isRecordExist("Select pocode from tbl_100_DR where pocode='" & dgList.Item("colPoCode", dgList.CurrentCell.RowIndex).Value & "'") Then
-                MessageBox.Show("Enable to Delete this PO is used by another transaction!", "Prompt", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Else
-                RunQuery("Delete tbl_100_PO where poCode='" & dgList.Item("colPoCode", dgList.CurrentCell.RowIndex).Value + "'")
-            End If
 
+                Call SaveAuditTrail("Delete poCode", dgList.Item("colPoCode", dgList.CurrentCell.RowIndex).Value)
+                Call RefreshRecord("sproc_100_po_list'" & MainForm.tsSearch.Text & "'")
+                SelectDataGridViewRow(dgList)
+            Catch ex As Exception
 
-            Call SaveAuditTrail("Delete poCode", dgList.Item("colPoCode", dgList.CurrentCell.RowIndex).Value)
-            Call RefreshRecord("sproc_100_po_list'" & MainForm.tsSearch.Text & "'")
-            SelectDataGridViewRow(dgList)
+            End Try
+
 
         End If
     End Sub
@@ -384,7 +389,7 @@ Public Class frm_100_POList
         ResizeForm(Me)
         picLogo.Image = MainForm.picLogo.Image
         Call RefreshRecord("sproc_100_po_list'" & MainForm.tsSearch.Text & "'")
-        ActivateCommands(FormState.ViewState)
+        ActivateCommands(FormState.LoadState)
 
 
     End Sub
@@ -455,5 +460,24 @@ Public Class frm_100_POList
 
     Private Sub PreviewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PreviewToolStripMenuItem.Click
 
+    End Sub
+
+    Private Sub dgList_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgList.CellClick
+        Dim index As Integer
+        Dim selectedRow As DataGridViewRow
+        Try
+            index = e.RowIndex
+            selectedRow = dgList.Rows(index)
+            ActivateCommands(FormState.ViewState)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Public Sub gridviewrow()
+        If dgList.RowCount > 0 Then
+            ActivateCommands(FormState.ViewState)
+        ElseIf dgList.RowCount > 1 Then
+            ActivateCommands(FormState.LoadState)
+        End If
     End Sub
 End Class

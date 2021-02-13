@@ -515,9 +515,8 @@ Public Class frm_100_DRList
         Select Case e.ColumnIndex
             Case 0
                 With frm_100_RH_ItemsList
-                    .myParent = Me
-                    .drcode = dgList2.Item("DataGridViewTextBoxColumn11", e.RowIndex).Value
-
+                    .maincode = dgList2.Item("DataGridViewTextBoxColumn11", e.RowIndex).Value
+                    .transactionName = "DRCODE"
                     .ShowDialog()
                 End With
             Case 1
@@ -549,6 +548,19 @@ Public Class frm_100_DRList
         Call RefreshRecord("sproc_100_dr_list " & False & ",'" & MainForm.tsSearch.Text & "'")
         Call RefreshRecord2("sproc_100_dr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
         ActivateCommands(FormState.LoadState)
+
+    End Sub
+
+    Private Sub dgList1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgList1.CellClick
+        Dim Index As Integer
+        Dim selectedRow As DataGridViewRow
+        Try
+            Index = e.RowIndex
+            selectedRow = dgList1.Rows(Index)
+            ActivateCommands(FormState.ViewState)
+        Catch ex As Exception
+
+        End Try
 
     End Sub
 End Class
