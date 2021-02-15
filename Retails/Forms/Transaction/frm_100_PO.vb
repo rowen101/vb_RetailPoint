@@ -327,4 +327,27 @@ Public Class frm_100_PO
             .Focus()
         End With
     End Sub
+    Private Sub dgDetails_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dgDetails.EditingControlShowing
+        Try
+            Dim txtedit As TextBox = CType(e.Control, TextBox)
+            RemoveHandler txtedit.KeyPress, AddressOf txedit_Keypress
+            AddHandler txtedit.KeyPress, AddressOf txedit_Keypress
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub txedit_Keypress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
+        If dgDetails.CurrentCell.ColumnIndex = 6 Then
+            If IsNumeric(e.KeyChar.ToString()) _
+                Or e.KeyChar = ChrW(Keys.Back) _
+                Or e.KeyChar = "." _
+                Or e.KeyChar = "-" Then
+                e.Handled = False
+            Else
+                e.Handled = True
+            End If
+
+        End If
+    End Sub
 End Class

@@ -57,14 +57,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RetailPoint.exe" size="2941952">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RetailPoint.exe" size="2944000">
       <assemblyIdentity name="RetailPoint" version="2015.9.23.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Qgb57lpggg2ETa+iY10sg67SweA=</dsig:DigestValue>
+        <dsig:DigestValue>w678mF5Mo28xZlOJunS4itf5r+Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

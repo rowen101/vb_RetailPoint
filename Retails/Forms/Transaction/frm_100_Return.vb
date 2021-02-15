@@ -92,37 +92,38 @@ Public Class frm_100_Return
 
 
                     With WR
-                        .returnId = txtreturnId.Text
-                        .returnDate = dtreturnDate.Text
-                        .tatalAmt = txtTotalAmount.Text
-                        .createdBy = CurrUser.USER_FULLNAME
-                        .comments = txtcomments.Text
-                        .action = cboAction.SelectedIndex
-                        .isPosted = ispost
+                                .returnId = txtreturnId.Text
+                                .returnDate = dtreturnDate.Text
+                                .tatalAmt = txtTotalAmount.Text
+                                .createdBy = CurrUser.USER_FULLNAME
+                                .comments = txtcomments.Text
+                                .action = cboAction.SelectedIndex
+                                .isPosted = ispost
 
 
-                        If bolFormState = FormState.EditState Then
-                            _OpenTransaction()
-                            strResult = .Save(bolFormState = FormState.EditState, dgDetails)
-                            _CloseTransaction(strResult)
-                            MsgBox("Updated Complete", MsgBoxStyle.Information, "Update")
+                                If bolFormState = FormState.EditState Then
+                                    _OpenTransaction()
+                                    strResult = .Save(bolFormState = FormState.EditState, dgDetails)
+                                    _CloseTransaction(strResult)
+                                    MsgBox("Updated Complete", MsgBoxStyle.Information, "Update")
 
-                            Me.Close()
+                                    Me.Close()
 
-                            myParent.RefreshRecord("sproc_100_return_list " & False & ",'" & MainForm.tsSearch.Text & "'")
-                            myParent.RefreshRecord2("sproc_100_return_list " & True & ",'" & MainForm.tsSearch.Text & "'")
-                        Else
+                                    myParent.RefreshRecord("sproc_100_return_list " & False & ",'" & MainForm.tsSearch.Text & "'")
+                                    myParent.RefreshRecord2("sproc_100_return_list " & True & ",'" & MainForm.tsSearch.Text & "'")
+                                Else
 
-                            If MsgBox("Do you want to Save?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Save Prompt") = MsgBoxResult.Yes Then
-                                _OpenTransaction()
-                                strResult = .Save(bolFormState = FormState.EditState, dgDetails)
-                                _CloseTransaction(strResult)
-                                Me.Close()
-                                myParent.RefreshRecord("sproc_100_return_list " & False & ",'" & MainForm.tsSearch.Text & "'")
-                                myParent.RefreshRecord2("sproc_100_return_list " & True & ",'" & MainForm.tsSearch.Text & "'")
-                            End If
-                        End If
-                    End With
+                                    If MsgBox("Do you want to Save?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Save Prompt") = MsgBoxResult.Yes Then
+                                        _OpenTransaction()
+                                        strResult = .Save(bolFormState = FormState.EditState, dgDetails)
+                                        _CloseTransaction(strResult)
+                                        Me.Close()
+                                        myParent.RefreshRecord("sproc_100_return_list " & False & ",'" & MainForm.tsSearch.Text & "'")
+                                        myParent.RefreshRecord2("sproc_100_return_list " & True & ",'" & MainForm.tsSearch.Text & "'")
+                                    End If
+                                End If
+                            End With
+
                 End If
             End If
         Catch ex As Exception
@@ -315,5 +316,28 @@ Public Class frm_100_Return
 
     Private Sub btnsave_Click(sender As Object, e As EventArgs) Handles btnsave.Click
         SaveRecord(False)
+    End Sub
+    Private Sub dgDetails_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dgDetails.EditingControlShowing
+        Try
+            Dim txtedit As TextBox = CType(e.Control, TextBox)
+            RemoveHandler txtedit.KeyPress, AddressOf txedit_Keypress
+            AddHandler txtedit.KeyPress, AddressOf txedit_Keypress
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub txedit_Keypress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
+        If dgDetails.CurrentCell.ColumnIndex = 6 Then
+            If IsNumeric(e.KeyChar.ToString()) _
+                Or e.KeyChar = ChrW(Keys.Back) _
+                Or e.KeyChar = "." _
+                Or e.KeyChar = "-" Then
+                e.Handled = False
+            Else
+                e.Handled = True
+            End If
+
+        End If
     End Sub
 End Class

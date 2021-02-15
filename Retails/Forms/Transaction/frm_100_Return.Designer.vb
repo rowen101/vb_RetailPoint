@@ -494,6 +494,7 @@ Partial Class frm_100_Return
         Me.colQty.DataPropertyName = "drQty"
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.Lavender
+        DataGridViewCellStyle1.NullValue = "0"
         Me.colQty.DefaultCellStyle = DataGridViewCellStyle1
         Me.colQty.HeaderText = "Quantity"
         Me.colQty.MinimumWidth = 100
@@ -602,14 +603,14 @@ Partial Class frm_100_Return
     Friend WithEvents dtreturnDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents cboAction As System.Windows.Forms.ComboBox
-    Friend WithEvents colSelect As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents colItemId As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colItemCode As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colItemName As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colDescription As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colBrand As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colQty As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colUOM As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colCost As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colAmount As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents colSelect As DataGridViewCheckBoxColumn
+    Friend WithEvents colItemId As DataGridViewTextBoxColumn
+    Friend WithEvents colItemCode As DataGridViewTextBoxColumn
+    Friend WithEvents colItemName As DataGridViewTextBoxColumn
+    Friend WithEvents colDescription As DataGridViewTextBoxColumn
+    Friend WithEvents colBrand As DataGridViewTextBoxColumn
+    Friend WithEvents colQty As DataGridViewTextBoxColumn
+    Friend WithEvents colUOM As DataGridViewTextBoxColumn
+    Friend WithEvents colCost As DataGridViewTextBoxColumn
+    Friend WithEvents colAmount As DataGridViewTextBoxColumn
 End Class

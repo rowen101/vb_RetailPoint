@@ -22,20 +22,31 @@ Partial Class frm_100_DR
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_100_DR))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.txtdrcode = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnRemove = New System.Windows.Forms.Button()
+        Me.btnAdd = New System.Windows.Forms.Button()
         Me.dgDetails = New System.Windows.Forms.DataGridView()
+        Me.colItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colItemCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colDescription = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colBrand = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colQty = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colUOM = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colCost = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colAmount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lblCurrency = New System.Windows.Forms.Label()
@@ -54,8 +65,6 @@ Partial Class frm_100_DR
         Me.btnsave = New System.Windows.Forms.Button()
         Me.cboPoCode = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.btnRemove = New System.Windows.Forms.Button()
-        Me.btnAdd = New System.Windows.Forms.Button()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -65,15 +74,6 @@ Partial Class frm_100_DR
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colItemCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colDescription = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colBrand = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colQty = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colUOM = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colCost = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colAmount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgDetails, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -116,6 +116,28 @@ Partial Class frm_100_DR
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Details"
         '
+        'btnRemove
+        '
+        Me.btnRemove.Image = CType(resources.GetObject("btnRemove.Image"), System.Drawing.Image)
+        Me.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnRemove.Location = New System.Drawing.Point(92, 19)
+        Me.btnRemove.Name = "btnRemove"
+        Me.btnRemove.Size = New System.Drawing.Size(79, 21)
+        Me.btnRemove.TabIndex = 78
+        Me.btnRemove.Text = "Remove"
+        Me.btnRemove.UseVisualStyleBackColor = True
+        '
+        'btnAdd
+        '
+        Me.btnAdd.Image = CType(resources.GetObject("btnAdd.Image"), System.Drawing.Image)
+        Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAdd.Location = New System.Drawing.Point(7, 19)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(79, 22)
+        Me.btnAdd.TabIndex = 77
+        Me.btnAdd.Text = "Add"
+        Me.btnAdd.UseVisualStyleBackColor = True
+        '
         'dgDetails
         '
         Me.dgDetails.AllowUserToAddRows = False
@@ -135,6 +157,98 @@ Partial Class frm_100_DR
         Me.dgDetails.RowHeadersWidth = 25
         Me.dgDetails.Size = New System.Drawing.Size(955, 77)
         Me.dgDetails.TabIndex = 1
+        '
+        'colItemId
+        '
+        Me.colItemId.DataPropertyName = "ItemId"
+        Me.colItemId.HeaderText = "ItemId"
+        Me.colItemId.Name = "colItemId"
+        Me.colItemId.Visible = False
+        '
+        'colItemCode
+        '
+        Me.colItemCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colItemCode.DataPropertyName = "ItemCode"
+        Me.colItemCode.HeaderText = "Item Code"
+        Me.colItemCode.MinimumWidth = 100
+        Me.colItemCode.Name = "colItemCode"
+        Me.colItemCode.ReadOnly = True
+        Me.colItemCode.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.colItemCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'colItemName
+        '
+        Me.colItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colItemName.DataPropertyName = "ItemName"
+        Me.colItemName.HeaderText = "Item Name"
+        Me.colItemName.Name = "colItemName"
+        Me.colItemName.ReadOnly = True
+        '
+        'colDescription
+        '
+        Me.colDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colDescription.DataPropertyName = "ItemDescription"
+        Me.colDescription.HeaderText = "Item Description"
+        Me.colDescription.MinimumWidth = 100
+        Me.colDescription.Name = "colDescription"
+        Me.colDescription.ReadOnly = True
+        '
+        'colBrand
+        '
+        Me.colBrand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colBrand.DataPropertyName = "BrandType"
+        Me.colBrand.HeaderText = "Brand"
+        Me.colBrand.MinimumWidth = 100
+        Me.colBrand.Name = "colBrand"
+        Me.colBrand.ReadOnly = True
+        '
+        'colQty
+        '
+        Me.colQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colQty.DataPropertyName = "drQty"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Lavender
+        DataGridViewCellStyle2.NullValue = "0"
+        Me.colQty.DefaultCellStyle = DataGridViewCellStyle2
+        Me.colQty.HeaderText = "Quantity"
+        Me.colQty.MinimumWidth = 100
+        Me.colQty.Name = "colQty"
+        '
+        'colUOM
+        '
+        Me.colUOM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colUOM.DataPropertyName = "UOM"
+        Me.colUOM.FillWeight = 70.0!
+        Me.colUOM.HeaderText = "UOM"
+        Me.colUOM.MinimumWidth = 100
+        Me.colUOM.Name = "colUOM"
+        Me.colUOM.ReadOnly = True
+        '
+        'colCost
+        '
+        Me.colCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colCost.DataPropertyName = "drCost"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = "0.00"
+        Me.colCost.DefaultCellStyle = DataGridViewCellStyle3
+        Me.colCost.HeaderText = "Unit Cost"
+        Me.colCost.MinimumWidth = 100
+        Me.colCost.Name = "colCost"
+        Me.colCost.ReadOnly = True
+        '
+        'colAmount
+        '
+        Me.colAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colAmount.DataPropertyName = "drAmount"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.Format = "N2"
+        DataGridViewCellStyle4.NullValue = "0.00"
+        Me.colAmount.DefaultCellStyle = DataGridViewCellStyle4
+        Me.colAmount.HeaderText = "Amount"
+        Me.colAmount.MinimumWidth = 100
+        Me.colAmount.Name = "colAmount"
+        Me.colAmount.ReadOnly = True
         '
         'Label15
         '
@@ -325,28 +439,6 @@ Partial Class frm_100_DR
         Me.Label5.TabIndex = 108
         Me.Label5.Text = "PO Code:"
         '
-        'btnRemove
-        '
-        Me.btnRemove.Image = CType(resources.GetObject("btnRemove.Image"), System.Drawing.Image)
-        Me.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnRemove.Location = New System.Drawing.Point(92, 19)
-        Me.btnRemove.Name = "btnRemove"
-        Me.btnRemove.Size = New System.Drawing.Size(79, 21)
-        Me.btnRemove.TabIndex = 78
-        Me.btnRemove.Text = "Remove"
-        Me.btnRemove.UseVisualStyleBackColor = True
-        '
-        'btnAdd
-        '
-        Me.btnAdd.Image = CType(resources.GetObject("btnAdd.Image"), System.Drawing.Image)
-        Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAdd.Location = New System.Drawing.Point(7, 19)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(79, 22)
-        Me.btnAdd.TabIndex = 77
-        Me.btnAdd.Text = "Add"
-        Me.btnAdd.UseVisualStyleBackColor = True
-        '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
@@ -453,97 +545,6 @@ Partial Class frm_100_DR
         Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
         Me.DataGridViewTextBoxColumn9.ReadOnly = True
         '
-        'colItemId
-        '
-        Me.colItemId.DataPropertyName = "ItemId"
-        Me.colItemId.HeaderText = "ItemId"
-        Me.colItemId.Name = "colItemId"
-        Me.colItemId.Visible = False
-        '
-        'colItemCode
-        '
-        Me.colItemCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colItemCode.DataPropertyName = "ItemCode"
-        Me.colItemCode.HeaderText = "Item Code"
-        Me.colItemCode.MinimumWidth = 100
-        Me.colItemCode.Name = "colItemCode"
-        Me.colItemCode.ReadOnly = True
-        Me.colItemCode.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.colItemCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'colItemName
-        '
-        Me.colItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colItemName.DataPropertyName = "ItemName"
-        Me.colItemName.HeaderText = "Item Name"
-        Me.colItemName.Name = "colItemName"
-        Me.colItemName.ReadOnly = True
-        '
-        'colDescription
-        '
-        Me.colDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colDescription.DataPropertyName = "ItemDescription"
-        Me.colDescription.HeaderText = "Item Description"
-        Me.colDescription.MinimumWidth = 100
-        Me.colDescription.Name = "colDescription"
-        Me.colDescription.ReadOnly = True
-        '
-        'colBrand
-        '
-        Me.colBrand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colBrand.DataPropertyName = "BrandType"
-        Me.colBrand.HeaderText = "Brand"
-        Me.colBrand.MinimumWidth = 100
-        Me.colBrand.Name = "colBrand"
-        Me.colBrand.ReadOnly = True
-        '
-        'colQty
-        '
-        Me.colQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colQty.DataPropertyName = "drQty"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Lavender
-        Me.colQty.DefaultCellStyle = DataGridViewCellStyle2
-        Me.colQty.HeaderText = "Quantity"
-        Me.colQty.MinimumWidth = 100
-        Me.colQty.Name = "colQty"
-        '
-        'colUOM
-        '
-        Me.colUOM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colUOM.DataPropertyName = "UOM"
-        Me.colUOM.FillWeight = 70.0!
-        Me.colUOM.HeaderText = "UOM"
-        Me.colUOM.MinimumWidth = 100
-        Me.colUOM.Name = "colUOM"
-        Me.colUOM.ReadOnly = True
-        '
-        'colCost
-        '
-        Me.colCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colCost.DataPropertyName = "drCost"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "N2"
-        DataGridViewCellStyle3.NullValue = "0.00"
-        Me.colCost.DefaultCellStyle = DataGridViewCellStyle3
-        Me.colCost.HeaderText = "Unit Cost"
-        Me.colCost.MinimumWidth = 100
-        Me.colCost.Name = "colCost"
-        Me.colCost.ReadOnly = True
-        '
-        'colAmount
-        '
-        Me.colAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colAmount.DataPropertyName = "drAmount"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle4.Format = "N2"
-        DataGridViewCellStyle4.NullValue = "0.00"
-        Me.colAmount.DefaultCellStyle = DataGridViewCellStyle4
-        Me.colAmount.HeaderText = "Amount"
-        Me.colAmount.MinimumWidth = 100
-        Me.colAmount.Name = "colAmount"
-        Me.colAmount.ReadOnly = True
-        '
         'frm_100_DR
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -613,13 +614,13 @@ Partial Class frm_100_DR
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents btnRemove As System.Windows.Forms.Button
     Friend WithEvents btnAdd As System.Windows.Forms.Button
-    Friend WithEvents colItemId As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colItemCode As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colItemName As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colDescription As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colBrand As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colQty As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colUOM As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colCost As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colAmount As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents colItemId As DataGridViewTextBoxColumn
+    Friend WithEvents colItemCode As DataGridViewTextBoxColumn
+    Friend WithEvents colItemName As DataGridViewTextBoxColumn
+    Friend WithEvents colDescription As DataGridViewTextBoxColumn
+    Friend WithEvents colBrand As DataGridViewTextBoxColumn
+    Friend WithEvents colQty As DataGridViewTextBoxColumn
+    Friend WithEvents colUOM As DataGridViewTextBoxColumn
+    Friend WithEvents colCost As DataGridViewTextBoxColumn
+    Friend WithEvents colAmount As DataGridViewTextBoxColumn
 End Class
