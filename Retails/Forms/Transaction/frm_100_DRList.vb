@@ -133,6 +133,7 @@ Public Class frm_100_DRList
 
         dv = New DataView(ds.Tables(tableName))
 
+
         tsFirst.Enabled = False
         tsPrev.Enabled = False
         tsNext.Enabled = ds.Tables(tableName).Rows.Count < recordCount
@@ -148,11 +149,9 @@ Public Class frm_100_DRList
 
         Cursor = Cursors.Default
         connection.Close()
-        If dgList1.RowCount > 0 Then
-            ActivateCommands(FormState.ViewState)
-        ElseIf dgList1.RowCount > 1 Then
-            ActivateCommands(FormState.LoadState)
-        End If
+
+
+        gridrowcount()
     End Sub
 
     Sub RefreshRecord2(ByVal sql As String)
@@ -208,6 +207,7 @@ Public Class frm_100_DRList
 
         Cursor = Cursors.Default
         connection.Close()
+
     End Sub
 
     Private Function StrPtr(ByVal obj As Object) As Integer
@@ -312,8 +312,12 @@ Public Class frm_100_DRList
 
             Case "Refresh"
                 MainForm.tsSearch.Text = String.Empty
-                Call RefreshRecord("sproc_100_dr_list " & False & ",'" & MainForm.tsSearch.Text & "'")
-                Call RefreshRecord2("sproc_100_dr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
+                If TabControl1.SelectedIndex = "0" Then
+                    Call RefreshRecord("sproc_100_dr_list " & False & ",'" & MainForm.tsSearch.Text & "'")
+                ElseIf TabControl1.SelectedIndex = "1" Then
+                    Call RefreshRecord2("sproc_100_dr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
+                End If
+
             Case "Filter"
                 Call FilterOn()
             Case "FilterClear"
@@ -332,6 +336,7 @@ Public Class frm_100_DRList
                 Call RefreshRecord("sproc_100_dr_list " & False & ",'" & MainForm.tsSearch.Text & "'")
                 '  Call RefreshRecord2("sproc_100_dr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
                 SelectDataGridViewRow(dgList1)
+
             Catch ex As Exception
 
             End Try
@@ -526,6 +531,8 @@ Public Class frm_100_DRList
 
     Private Sub TabControl1_Selected(sender As Object, e As TabControlEventArgs) Handles TabControl1.Selected
         If e.TabPageIndex = 0 Then
+            Call RefreshRecord("sproc_100_dr_list " & False & ",'" & MainForm.tsSearch.Text & "'")
+
             If dgList1.RowCount > 0 Then
                 ActivateCommands(FormState.ViewState)
             ElseIf dgList1.RowCount > 1 Then
@@ -534,6 +541,7 @@ Public Class frm_100_DRList
 
         Else
 
+            Call RefreshRecord2("sproc_100_dr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
             ActivateCommands(FormState.LoadState)
         End If
     End Sub
@@ -541,13 +549,24 @@ Public Class frm_100_DRList
     Private Sub DgList1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgList1.CellContentClick
 
     End Sub
+    Public Sub gridrowcount()
+        If dgList1.RowCount > 0 Then
+            ActivateCommands(FormState.ViewState)
+        ElseIf dgList1.RowCount > 1 Then
+            ActivateCommands(FormState.LoadState)
+        End If
+    End Sub
 
     Private Sub frm_100_DRList_Load(sender As Object, e As EventArgs) Handles Me.Load
         ResizeForm(Me)
         picLogo.Image = MainForm.picLogo.Image
         Call RefreshRecord("sproc_100_dr_list " & False & ",'" & MainForm.tsSearch.Text & "'")
-        Call RefreshRecord2("sproc_100_dr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
+
         ActivateCommands(FormState.LoadState)
+
+    End Sub
+
+    Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
 
     End Sub
 

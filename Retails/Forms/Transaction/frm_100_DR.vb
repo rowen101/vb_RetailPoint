@@ -322,9 +322,7 @@ Public Class frm_100_DR
     End Sub
 
     Private Sub btnsave_Click(sender As Object, e As EventArgs) Handles btnsave.Click
-
         SaveRecord(False)
-
     End Sub
 
     Private Sub dgDetails_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)

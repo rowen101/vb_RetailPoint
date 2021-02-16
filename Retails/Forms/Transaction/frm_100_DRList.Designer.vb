@@ -23,15 +23,16 @@ Partial Class frm_100_DRList
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_100_DRList))
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_100_DRList))
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.tsPagination = New System.Windows.Forms.ToolStrip()
         Me.tsPageSize = New System.Windows.Forms.ToolStripButton()
         Me.tsFirst = New System.Windows.Forms.ToolStripButton()
@@ -43,16 +44,9 @@ Partial Class frm_100_DRList
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.dgList1 = New System.Windows.Forms.DataGridView()
-        Me.colDRCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colPoCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colvendor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colDrDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.dgList2 = New System.Windows.Forms.DataGridView()
+        Me.view = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.picLogo = New System.Windows.Forms.PictureBox()
         Me.lblTitle = New System.Windows.Forms.Label()
@@ -66,13 +60,20 @@ Partial Class frm_100_DRList
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.view = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colDRCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colPoCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colvendor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colDrDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tsPagination.SuspendLayout()
@@ -200,73 +201,6 @@ Partial Class frm_100_DRList
         Me.dgList1.Size = New System.Drawing.Size(834, 392)
         Me.dgList1.TabIndex = 40
         '
-        'colDRCode
-        '
-        Me.colDRCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colDRCode.DataPropertyName = "drCode"
-        Me.colDRCode.HeaderText = "DR Code"
-        Me.colDRCode.Name = "colDRCode"
-        Me.colDRCode.ReadOnly = True
-        '
-        'colPoCode
-        '
-        Me.colPoCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colPoCode.DataPropertyName = "pocode"
-        Me.colPoCode.HeaderText = "PO Code"
-        Me.colPoCode.Name = "colPoCode"
-        Me.colPoCode.ReadOnly = True
-        '
-        'colvendor
-        '
-        Me.colvendor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colvendor.DataPropertyName = "SupplierName"
-        Me.colvendor.HeaderText = "Vendor"
-        Me.colvendor.Name = "colvendor"
-        Me.colvendor.ReadOnly = True
-        '
-        'colDrDate
-        '
-        Me.colDrDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.colDrDate.DataPropertyName = "drDate"
-        Me.colDrDate.HeaderText = "Date Receive"
-        Me.colDrDate.Name = "colDrDate"
-        Me.colDrDate.ReadOnly = True
-        '
-        'Column1
-        '
-        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column1.DataPropertyName = "remarks"
-        Me.Column1.HeaderText = "Remarks"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column2.DataPropertyName = "createdBy"
-        Me.Column2.HeaderText = "Created By"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column3.DataPropertyName = "createdDte"
-        Me.Column3.HeaderText = "Created Date"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column4.DataPropertyName = "totalCost"
-        DataGridViewCellStyle2.Format = "N2"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Column4.HeaderText = "Total Cost"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.dgList2)
@@ -299,6 +233,20 @@ Partial Class frm_100_DRList
         Me.dgList2.RowHeadersWidth = 25
         Me.dgList2.Size = New System.Drawing.Size(834, 392)
         Me.dgList2.TabIndex = 41
+        '
+        'view
+        '
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.NullValue = "View Items"
+        Me.view.DefaultCellStyle = DataGridViewCellStyle4
+        Me.view.FillWeight = 70.0!
+        Me.view.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.view.HeaderText = ""
+        Me.view.Name = "view"
+        Me.view.ReadOnly = True
+        Me.view.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.view.Text = "View Items"
+        Me.view.Width = 78
         '
         'Panel1
         '
@@ -402,8 +350,8 @@ Partial Class frm_100_DRList
         '
         Me.DataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.DataGridViewTextBoxColumn8.DataPropertyName = "InventoryUOM"
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridViewTextBoxColumn8.FillWeight = 60.0!
         Me.DataGridViewTextBoxColumn8.HeaderText = "Converted UoM"
         Me.DataGridViewTextBoxColumn8.MinimumWidth = 100
@@ -414,8 +362,8 @@ Partial Class frm_100_DRList
         '
         Me.DataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.DataGridViewTextBoxColumn9.DataPropertyName = "StockLevelQty"
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle10
         Me.DataGridViewTextBoxColumn9.FillWeight = 60.0!
         Me.DataGridViewTextBoxColumn9.HeaderText = "Stock Level"
         Me.DataGridViewTextBoxColumn9.MinimumWidth = 75
@@ -431,20 +379,6 @@ Partial Class frm_100_DRList
         Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
         Me.DataGridViewTextBoxColumn10.ReadOnly = True
         '
-        'view
-        '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.NullValue = "View Items"
-        Me.view.DefaultCellStyle = DataGridViewCellStyle4
-        Me.view.FillWeight = 70.0!
-        Me.view.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.view.HeaderText = ""
-        Me.view.Name = "view"
-        Me.view.ReadOnly = True
-        Me.view.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.view.Text = "View Items"
-        Me.view.Width = 78
-        '
         'DataGridViewTextBoxColumn11
         '
         Me.DataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
@@ -457,6 +391,9 @@ Partial Class frm_100_DRList
         '
         Me.DataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.DataGridViewTextBoxColumn12.DataPropertyName = "pocode"
+        DataGridViewCellStyle5.Format = "N2"
+        DataGridViewCellStyle5.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridViewTextBoxColumn12.HeaderText = "PO Code"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         Me.DataGridViewTextBoxColumn12.ReadOnly = True
@@ -473,9 +410,9 @@ Partial Class frm_100_DRList
         '
         Me.DataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.DataGridViewTextBoxColumn14.DataPropertyName = "drDate"
-        DataGridViewCellStyle5.Format = "N2"
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle6.Format = "N2"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridViewTextBoxColumn14.HeaderText = "Date Receive"
         Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
         Me.DataGridViewTextBoxColumn14.ReadOnly = True
@@ -492,12 +429,79 @@ Partial Class frm_100_DRList
         '
         Me.DataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.DataGridViewTextBoxColumn16.DataPropertyName = "createdBy"
-        DataGridViewCellStyle6.Format = "N2"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn16.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle7.Format = "N2"
+        DataGridViewCellStyle7.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn16.DefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridViewTextBoxColumn16.HeaderText = "Created By"
         Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
         Me.DataGridViewTextBoxColumn16.ReadOnly = True
+        '
+        'colDRCode
+        '
+        Me.colDRCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colDRCode.DataPropertyName = "drCode"
+        Me.colDRCode.HeaderText = "DR Code"
+        Me.colDRCode.Name = "colDRCode"
+        Me.colDRCode.ReadOnly = True
+        '
+        'colPoCode
+        '
+        Me.colPoCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colPoCode.DataPropertyName = "pocode"
+        Me.colPoCode.HeaderText = "PO Code"
+        Me.colPoCode.Name = "colPoCode"
+        Me.colPoCode.ReadOnly = True
+        '
+        'colvendor
+        '
+        Me.colvendor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colvendor.DataPropertyName = "SupplierName"
+        Me.colvendor.HeaderText = "Vendor"
+        Me.colvendor.Name = "colvendor"
+        Me.colvendor.ReadOnly = True
+        '
+        'colDrDate
+        '
+        Me.colDrDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.colDrDate.DataPropertyName = "drDate"
+        Me.colDrDate.HeaderText = "Date Receive"
+        Me.colDrDate.Name = "colDrDate"
+        Me.colDrDate.ReadOnly = True
+        '
+        'Column1
+        '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column1.DataPropertyName = "remarks"
+        Me.Column1.HeaderText = "Remarks"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column2.DataPropertyName = "createdBy"
+        Me.Column2.HeaderText = "Created By"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        '
+        'Column3
+        '
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column3.DataPropertyName = "createdDte"
+        Me.Column3.HeaderText = "Created Date"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        '
+        'Column4
+        '
+        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column4.DataPropertyName = "totalCost"
+        DataGridViewCellStyle2.Format = "N2"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle2
+        Me.Column4.HeaderText = "Total Cost"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
         '
         'DataGridViewTextBoxColumn17
         '
@@ -511,9 +515,9 @@ Partial Class frm_100_DRList
         '
         Me.DataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.DataGridViewTextBoxColumn18.DataPropertyName = "totalCost"
-        DataGridViewCellStyle7.Format = "N2"
-        DataGridViewCellStyle7.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle8.Format = "N2"
+        DataGridViewCellStyle8.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridViewTextBoxColumn18.HeaderText = "Total Cost"
         Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
         Me.DataGridViewTextBoxColumn18.ReadOnly = True

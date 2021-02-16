@@ -312,8 +312,12 @@ Public Class frm_100_WRList
 
             Case "Refresh"
                 MainForm.tsSearch.Text = String.Empty
-                Call RefreshRecord("sproc_100_wr_list " & False & ",'" & MainForm.tsSearch.Text & "'")
-                Call RefreshRecord2("sproc_100_wr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
+                If TabControl1.SelectedIndex = "0" Then
+                    Call RefreshRecord("sproc_100_wr_list " & False & ",'" & MainForm.tsSearch.Text & "'")
+                ElseIf TabControl1.SelectedIndex = "1" Then
+                    Call RefreshRecord2("sproc_100_wr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
+                End If
+
             Case "Filter"
                 Call FilterOn()
             Case "FilterClear"
@@ -447,7 +451,7 @@ Public Class frm_100_WRList
         ResizeForm(Me)
         picLogo.Image = MainForm.picLogo.Image
         Call RefreshRecord("sproc_100_wr_list " & False & ",'" & MainForm.tsSearch.Text & "'")
-        Call RefreshRecord2("sproc_100_wr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
+        'Call RefreshRecord2("sproc_100_wr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
         ActivateCommands(FormState.LoadState)
 
 
@@ -525,6 +529,8 @@ Public Class frm_100_WRList
 
     Private Sub TabControl1_Selected(sender As Object, e As TabControlEventArgs) Handles TabControl1.Selected
         If e.TabPageIndex = 0 Then
+            Call RefreshRecord("sproc_100_wr_list " & False & ",'" & MainForm.tsSearch.Text & "'")
+
             If dgList1.RowCount > 0 Then
                 ActivateCommands(FormState.ViewState)
             ElseIf dgList1.RowCount > 1 Then
@@ -532,7 +538,7 @@ Public Class frm_100_WRList
             End If
 
         Else
-
+            Call RefreshRecord2("sproc_100_wr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
             ActivateCommands(FormState.LoadState)
         End If
     End Sub
