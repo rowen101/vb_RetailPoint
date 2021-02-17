@@ -103,11 +103,11 @@ Public Class frmSummary
                             dtp2.Show()
                             lbl1.Text = "From:"
                             lbl2.Text = "To:"
+
                         Case 2
                             grp1.Text = listreport.Text
                             hidecontrols()
                             lbl1.Show()
-
                             lbl1.Text = "Select Preview or Print to show the report"
 
 
@@ -247,7 +247,7 @@ Public Class frmSummary
                         Case 1
                             cryRpt.Load(Application.StartupPath & "\Reports\rpt_200_TopFastMovingItem.rpt")
                             With cryRpt
-                                .SetDataSource(FillReportForm("select * from v_TopFastMovingItem where CreateDte between'" & dtp1.Text & "'and '" & dtp2.Text & "' ORDER BY SalesQty DESC", "v_ItemMasterFileBelowStockLevel"))
+                                .SetDataSource(FillReportForm("select * from v_TopFastMovingItem where CreateDte between'" & dtp1.Text & "'and '" & dtp2.Text & "' ORDER BY SalesQty DESC", "v_TopFastMovingItem"))
                                 .SetParameterValue("company", CompanyInfo.companyName)
                                 .SetParameterValue("address", CompanyInfo.companyAddress)
                                 .SetParameterValue("prepared", CurrUser.USER_FULLNAME)
@@ -256,7 +256,7 @@ Public Class frmSummary
                         Case 2
                             cryRpt.Load(Application.StartupPath & "\Reports\rpt_200_TopFastMovingItemBelowStockLevel.rpt")
                             With cryRpt
-                                .SetDataSource(FillReportForm("select * from v_TopFastMovingItemBelowStockLevel ORDER BY ItemName, BrandType", "v_ItemMasterFileBelowStockLevel"))
+                                .SetDataSource(FillReportForm("select * from v_TopFastMovingItemBelowStockLevel ORDER BY ItemName, BrandType", "v_TopFastMovingItemBelowStockLevel"))
                                 .SetParameterValue("company", CompanyInfo.companyName)
                                 .SetParameterValue("address", CompanyInfo.companyAddress)
                                 .SetParameterValue("prepared", CurrUser.USER_FULLNAME)
@@ -382,6 +382,7 @@ Public Class frmSummary
         strRpt = isReport
         Call AddListItem()
         frmload = False
+
     End Sub
 
 
@@ -389,13 +390,14 @@ Public Class frmSummary
         Call ViewReport(ReportMode.rptWindowMode)
     End Sub
 
+
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        Call ViewReport(ReportMode.rptPrintMode)
+        'Call ViewReport(ReportMode.rptPrintMode)
     End Sub
 #End Region
 
 
 
 
-    
+
 End Class

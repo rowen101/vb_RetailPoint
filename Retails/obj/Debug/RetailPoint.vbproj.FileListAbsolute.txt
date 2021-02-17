@@ -124,3 +124,4 @@ C:\Users\rowen\Documents\vb_RetailPoint\Retails\obj\Debug\RetailPoint.vbproj.Cop
 C:\Users\rowen\Documents\vb_RetailPoint\Retails\obj\Debug\RetailPoint.exe
 C:\Users\rowen\Documents\vb_RetailPoint\Retails\obj\Debug\RetailPoint.xml
 C:\Users\rowen\Documents\vb_RetailPoint\Retails\obj\Debug\RetailPoint.pdb
+C:\Users\rowen\Documents\vb_RetailPoint\Retails\obj\Debug\RetailPoint.vbprojAssemblyReference.cache

@@ -402,6 +402,11 @@ RetailPoint
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:RetailPoint.My.Resources.Resources.table_view_512">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:RetailPoint.My.Resources.Resources.Table1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

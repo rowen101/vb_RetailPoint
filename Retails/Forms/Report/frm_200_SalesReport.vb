@@ -250,7 +250,6 @@ Public Class frm_200_SalesReport
 
             Case "Refresh"
                 '  MainForm.tsSearch.Text = String.Empty
-
                 ' Call RefreshRecord("sproc_100_po_list'" & MainForm.tsSearch.Text & "'")
             Case "Filter"
                 Call FilterOn()
@@ -263,12 +262,16 @@ Public Class frm_200_SalesReport
 
     Sub DeleteRecord()
         If vbYes = MsgBox("Are you sure you want to delete this Item?", MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Confirm Delete") Then
+            Try
+                RunQuery("Delete tbl_000_Item where ItemId=" & dgList.Item("colItemId", dgList.CurrentCell.RowIndex).Value)
 
-            RunQuery("Delete tbl_000_Item where ItemId=" & dgList.Item("colItemId", dgList.CurrentCell.RowIndex).Value)
+                Call SaveAuditTrail("Delete item code", dgList.Item("colitemcode", dgList.CurrentCell.RowIndex).Value)
+                Call RefreshRecord("sproc_100_po_list'" & MainForm.tsSearch.Text & "'")
+                SelectDataGridViewRow(dgList)
+            Catch ex As Exception
 
-            Call SaveAuditTrail("Delete item code", dgList.Item("colitemcode", dgList.CurrentCell.RowIndex).Value)
-            Call RefreshRecord("sproc_100_po_list'" & MainForm.tsSearch.Text & "'")
-            SelectDataGridViewRow(dgList)
+            End Try
+
 
         End If
     End Sub
@@ -411,6 +414,7 @@ Public Class frm_200_SalesReport
 
     Private Sub GetData()
         FillGrid(dgList, "sproc_200_SalesReportUnpost '" & dtfrom.Text & "','" & dtto.Text & "'", "tbl_100_SR")
+
     End Sub
 #End Region
 
@@ -469,6 +473,7 @@ Public Class frm_200_SalesReport
         GetData()
         Timer1.Enabled = True
         Timer1.Start()
+
     End Sub
 
 
@@ -477,4 +482,5 @@ Public Class frm_200_SalesReport
         GetData()
 
     End Sub
+
 End Class

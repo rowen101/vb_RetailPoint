@@ -912,6 +912,7 @@
     <Content Include="Aha-Soft-Standard-City-Drugstore.ico" />
     <Content Include="inventory-maintenance.ico" />
     <Content Include="Resources\Background.JPG" />
+    <None Include="Resources\table_view-512.png" />
     <None Include="Resources\MoveNext.png" />
     <None Include="Resources\MoveLast.png" />
     <None Include="Resources\MoveFirst.png" />

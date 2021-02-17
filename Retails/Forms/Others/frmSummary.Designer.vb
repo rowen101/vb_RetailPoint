@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmSummary
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmSummary
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSummary))
@@ -32,10 +32,8 @@ Partial Class frmSummary
         Me.dtp2 = New System.Windows.Forms.DateTimePicker()
         Me.txt1 = New System.Windows.Forms.TextBox()
         Me.cbo1 = New System.Windows.Forms.ComboBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.txt2 = New System.Windows.Forms.TextBox()
         Me.lbl1 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.txt3 = New System.Windows.Forms.TextBox()
         Me.lbl2 = New System.Windows.Forms.Label()
         Me.lbl3 = New System.Windows.Forms.Label()
@@ -44,6 +42,8 @@ Partial Class frmSummary
         Me.grp1 = New System.Windows.Forms.GroupBox()
         Me.lbl6 = New System.Windows.Forms.Label()
         Me.lbl5 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.ErrorP = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.grp1.SuspendLayout()
         CType(Me.ErrorP, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -140,18 +140,6 @@ Partial Class frmSummary
         Me.cbo1.TabIndex = 5
         Me.cbo1.Visible = False
         '
-        'Button2
-        '
-        Me.Button2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button2.Image = Global.RetailPoint.My.Resources.Resources.print
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(104, 204)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(68, 27)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "Print"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'txt2
         '
         Me.txt2.Location = New System.Drawing.Point(105, 57)
@@ -172,19 +160,6 @@ Partial Class frmSummary
         Me.lbl1.TabIndex = 4
         Me.lbl1.Text = "Label1"
         Me.lbl1.Visible = False
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button1.Image = Global.RetailPoint.My.Resources.Resources.preview
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(184, 204)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(68, 27)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Preview"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'txt3
         '
@@ -249,7 +224,6 @@ Partial Class frmSummary
         Me.grp1.Controls.Add(Me.txt4)
         Me.grp1.Controls.Add(Me.lbl3)
         Me.grp1.Controls.Add(Me.lbl2)
-        Me.grp1.Controls.Add(Me.txt3)
         Me.grp1.Controls.Add(Me.Button1)
         Me.grp1.Controls.Add(Me.lbl1)
         Me.grp1.Controls.Add(Me.txt2)
@@ -261,6 +235,7 @@ Partial Class frmSummary
         Me.grp1.Controls.Add(Me.dtp1)
         Me.grp1.Controls.Add(Me.cbo3)
         Me.grp1.Controls.Add(Me.cbo4)
+        Me.grp1.Controls.Add(Me.txt3)
         Me.grp1.Location = New System.Drawing.Point(287, 12)
         Me.grp1.Name = "grp1"
         Me.grp1.Size = New System.Drawing.Size(298, 264)
@@ -292,6 +267,31 @@ Partial Class frmSummary
         Me.lbl5.TabIndex = 20
         Me.lbl5.Text = "Label4"
         Me.lbl5.Visible = False
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button1.Image = Global.RetailPoint.My.Resources.Resources.preview
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(184, 204)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(68, 27)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Preview"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button2.Image = Global.RetailPoint.My.Resources.Resources.print
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.Location = New System.Drawing.Point(104, 204)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(68, 27)
+        Me.Button2.TabIndex = 3
+        Me.Button2.Text = "Print"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'ErrorP
         '
@@ -339,5 +339,4 @@ Partial Class frmSummary
     Friend WithEvents ErrorP As System.Windows.Forms.ErrorProvider
     Friend WithEvents lbl6 As System.Windows.Forms.Label
     Friend WithEvents lbl5 As System.Windows.Forms.Label
-
 End Class
