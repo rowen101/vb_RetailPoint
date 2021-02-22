@@ -148,7 +148,9 @@ Public Class frm_200_SalesReport
         MainForm.tsFilterOn.Enabled = dgList.RowCount > 0
 
         Cursor = Cursors.Default
+        gridrowcount()
         connection.Close()
+
     End Sub
     Private Function StrPtr(ByVal obj As Object) As Integer
         Dim Handle As GCHandle = _
@@ -243,7 +245,7 @@ Public Class frm_200_SalesReport
             Case "Edit"
                 EditRecord()
             Case "Delete"
-                DeleteRecord()
+               ' DeleteRecord()
             Case "Save"
 
             Case "Cancel"
@@ -258,16 +260,41 @@ Public Class frm_200_SalesReport
         End Select
     End Sub
 
+    Public Sub DelSelectedItem(ByVal SRId As Integer, Optional ByVal withTrans As Boolean = False)
+        Dim str As String
+
+        Try
+            str = "delSelectedAnposseItem '" & SRId & "'"
+
+            If withTrans Then
+                Using cmd As New SqlCommand(str, _Connection, _Transaction)
+                    cmd.ExecuteNonQuery()
+                End Using
+            Else
+                _OpenTransaction()
+                Using cmd As New SqlCommand(str, _Connection, _Transaction)
+                    cmd.ExecuteNonQuery()
+                End Using
+                _CloseTransaction(True)
+            End If
+
+        Catch ex As Exception
+            Throw ex
+        End Try
+
+    End Sub
 
 
     Sub DeleteRecord()
         If vbYes = MsgBox("Are you sure you want to delete this Item?", MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Confirm Delete") Then
             Try
-                RunQuery("Delete tbl_000_Item where ItemId=" & dgList.Item("colItemId", dgList.CurrentCell.RowIndex).Value)
 
-                Call SaveAuditTrail("Delete item code", dgList.Item("colitemcode", dgList.CurrentCell.RowIndex).Value)
+                RunQuery("Delete tbl_000_Item where ItemId=" & dgList.Item("colItemId", dgList.CurrentCell.RowIndex).Value)
+                Call SaveAuditTrail("Delete item code sales report ", dgList.Item("colSRId", dgList.CurrentCell.RowIndex).Value)
+                Call DelSelectedItem(dgList.Item("colSRId", dgList.CurrentCell.RowIndex).Value)
                 Call RefreshRecord("sproc_100_po_list'" & MainForm.tsSearch.Text & "'")
                 SelectDataGridViewRow(dgList)
+
             Catch ex As Exception
 
             End Try
@@ -384,7 +411,7 @@ Public Class frm_200_SalesReport
         ResizeForm(Me)
         picLogo.Image = MainForm.picLogo.Image
         ' Call RefreshRecord("sproc_100_po_list'" & MainForm.tsSearch.Text & "'")
-        ActivateCommands(FormState.ViewState)
+        ActivateCommands(FormState.LoadState)
 
 
     End Sub
@@ -482,5 +509,23 @@ Public Class frm_200_SalesReport
         GetData()
 
     End Sub
+    Private Sub dgList_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgList.CellClick
+        Dim Index As Integer
+        Dim selectedRow As DataGridViewRow
+        Try
+            Index = e.RowIndex
+            selectedRow = dgList.Rows(Index)
+            ActivateCommands(FormState.ViewState)
+        Catch ex As Exception
 
+        End Try
+
+    End Sub
+    Public Sub gridrowcount()
+        If dgList.RowCount > 0 Then
+            ActivateCommands(FormState.ViewState)
+        ElseIf dgList.RowCount > 1 Then
+            ActivateCommands(FormState.LoadState)
+        End If
+    End Sub
 End Class
