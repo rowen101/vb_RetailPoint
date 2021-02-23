@@ -351,23 +351,22 @@ Public Class frm_100_DRList
     End Sub
     Sub DeleteRecord()
         If vbYes = MsgBox("Are you sure you want to delete this Item?", MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Confirm Delete") Then
+            Try
+                If TabControl1.TabIndex = "0" Then
 
-            If TabControl1.TabIndex = "0" Then
-                'RunQuery("Delete tbl_100_DR_Sub where drCode='" & dgList1.Item("colDRCode", dgList1.CurrentCell.RowIndex).Value & "'")
-                Call DeleteReceiveHistory(dgList1.Item("colDRCode", dgList1.CurrentCell.RowIndex).Value)
-                Call SaveAuditTrail("Delete DR code", dgList1.Item("colDRCode", dgList1.CurrentCell.RowIndex).Value)
-                Call RefreshRecord("sproc_100_dr_list " & False & ",'" & MainForm.tsSearch.Text & "'")
-                '  Call RefreshRecord2("sproc_100_dr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
-                SelectDataGridViewRow(dgList1)
-            Else
-                'RunQuery("Delete tbl_100_DR_Sub where drCode='" & dgList1.Item("colDRCode", dgList1.CurrentCell.RowIndex).Value & "'")
-                Call DeleteReceiveHistory(dgList2.Item("DataGridViewTextBoxColumn11", dgList2.CurrentCell.RowIndex).Value)
-                Call SaveAuditTrail("Delete DR code", dgList2.Item("DataGridViewTextBoxColumn11", dgList2.CurrentCell.RowIndex).Value)
-                Call RefreshRecord2("sproc_100_dr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
-                '  Call RefreshRecord2("sproc_100_dr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
-                SelectDataGridViewRow(dgList2)
-            End If
+                    Call DeleteReceiveHistory(dgList1.Item("colDRCode", dgList1.CurrentCell.RowIndex).Value)
+                    Call SaveAuditTrail("Delete DR code", dgList1.Item("colDRCode", dgList1.CurrentCell.RowIndex).Value)
+                    Call RefreshRecord("sproc_100_dr_list " & False & ",'" & MainForm.tsSearch.Text & "'")
+                    SelectDataGridViewRow(dgList1)
+                Else
+                    Call DeleteReceiveHistory(dgList2.Item("DataGridViewTextBoxColumn11", dgList2.CurrentCell.RowIndex).Value)
+                    Call SaveAuditTrail("Delete DR code", dgList2.Item("DataGridViewTextBoxColumn11", dgList2.CurrentCell.RowIndex).Value)
+                    Call RefreshRecord2("sproc_100_dr_list " & True & ",'" & MainForm.tsSearch.Text & "'")
+                    SelectDataGridViewRow(dgList2)
+                End If
+            Catch ex As Exception
 
+            End Try
 
         End If
     End Sub

@@ -322,21 +322,49 @@ Public Class frm_100_ReturnList
     End Sub
 
 
+    Public Sub DeleteReturnItem(ByVal returnId As String, Optional ByVal withTrans As Boolean = False)
+        Dim str As String
 
+        Try
+            str = "_DeleteReturnItem '" & returnId & "'"
+
+            If withTrans Then
+                Using cmd As New SqlCommand(str, _Connection, _Transaction)
+                    cmd.ExecuteNonQuery()
+                End Using
+            Else
+                _OpenTransaction()
+                Using cmd As New SqlCommand(str, _Connection, _Transaction)
+                    cmd.ExecuteNonQuery()
+                End Using
+                _CloseTransaction(True)
+            End If
+
+        Catch ex As Exception
+            Throw ex
+        End Try
+
+    End Sub
     Sub DeleteRecord()
         If vbYes = MsgBox("Are you sure you want to delete this Item?", MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Confirm Delete") Then
             Try
-                RunQuery("Delete tbl_100_Return where returnId=" & dgList1.Item("colreturnId", dgList1.CurrentCell.RowIndex).Value)
+                If TabControl1.TabIndex = "0" Then
+                    Call DeleteReturnItem(dgList1.Item("colreturnId", dgList1.CurrentCell.RowIndex).Value)
+                    Call SaveAuditTrail("Delete DR code", dgList1.Item("colreturnId", dgList1.CurrentCell.RowIndex).Value)
+                    Call RefreshRecord("sproc_100_return_list " & False & ",'" & MainForm.tsSearch.Text & "'")
 
-                Call SaveAuditTrail("Delete Return Code", dgList1.Item("colreturnId", dgList1.CurrentCell.RowIndex).Value)
-                Call RefreshRecord("sproc_100_return_list " & False & ",'" & MainForm.tsSearch.Text & "'")
-                '  Call RefreshRecord2("sproc_100_return_list " & True & ",'" & MainForm.tsSearch.Text & "'")
-                SelectDataGridViewRow(dgList1)
-                gridlistview1()
+                    SelectDataGridViewRow(dgList1)
+                Else
+
+                    Call DeleteReturnItem(dgList2.Item("DataGridViewTextBoxColumn11", dgList2.CurrentCell.RowIndex).Value)
+                    Call SaveAuditTrail("Delete DR code", dgList2.Item("DataGridViewTextBoxColumn11", dgList2.CurrentCell.RowIndex).Value)
+                    Call RefreshRecord2("sproc_100_return_list " & True & ",'" & MainForm.tsSearch.Text & "'")
+
+                    SelectDataGridViewRow(dgList2)
+                End If
             Catch ex As Exception
 
             End Try
-
 
         End If
     End Sub
@@ -548,7 +576,6 @@ Public Class frm_100_ReturnList
     Private Sub dgList1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgList1.CellClick
         Dim index As Integer
         Dim selectedRow As DataGridViewRow
-
         Try
             index = e.RowIndex
             selectedRow = dgList1.Rows(index)
@@ -556,7 +583,18 @@ Public Class frm_100_ReturnList
         Catch ex As Exception
 
         End Try
+    End Sub
+    Private Sub dgList2_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgList2.CellClick
+        Dim Index As Integer
+        Dim selectedRow As DataGridViewRow
+        Try
+            Index = e.RowIndex
+            selectedRow = dgList2.Rows(Index)
+            MainForm.tsEdit.Enabled = False
+            MainForm.tsDelete.Enabled = True
+        Catch ex As Exception
 
+        End Try
 
     End Sub
 End Class
