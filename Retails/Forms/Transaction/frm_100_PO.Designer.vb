@@ -74,6 +74,8 @@ Partial Class frm_100_PO
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.txtporefcode = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgDetails, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -542,12 +544,30 @@ Partial Class frm_100_PO
         Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
         Me.DataGridViewTextBoxColumn9.ReadOnly = True
         '
+        'txtporefcode
+        '
+        Me.txtporefcode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtporefcode.Location = New System.Drawing.Point(81, 130)
+        Me.txtporefcode.Name = "txtporefcode"
+        Me.txtporefcode.Size = New System.Drawing.Size(217, 20)
+        Me.txtporefcode.TabIndex = 108
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(9, 130)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(66, 13)
+        Me.Label7.TabIndex = 100
+        Me.Label7.Text = "Po ref Code:"
+        '
         'frm_100_PO
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(995, 383)
         Me.ControlBox = False
+        Me.Controls.Add(Me.txtporefcode)
         Me.Controls.Add(Me.dtepCD)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.dtepSD)
@@ -555,6 +575,7 @@ Partial Class frm_100_PO
         Me.Controls.Add(Me.dtepOD)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.cboStatus)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cboVendor)
         Me.Controls.Add(Me.Label2)
@@ -621,4 +642,6 @@ Partial Class frm_100_PO
     Friend WithEvents colAmount As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents txtporefcode As TextBox
+    Friend WithEvents Label7 As Label
 End Class
