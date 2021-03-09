@@ -101,7 +101,7 @@ Public Class frm_100_PO
                         .orderDte = dtepOD.Text
                         .shippingDte = dtepSD.Text
                         .closedDte = dtepCD.Text
-
+                        .porefno = txtporefcode.Text
 
                         If bolFormState = FormState.EditState Then
                             _OpenTransaction()
@@ -230,7 +230,7 @@ Public Class frm_100_PO
             dtepOD.Text = .orderDte
             dtepSD.Text = .shippingDte
             txtTotalAmount.Text = FormatNumber(.totalCost)
-          
+            txtporefcode.Text = .porefno
         End With
 
         FillDataGrid(dgDetails, String.Format("select ItemId, ItemCode, ItemName, ItemDescription, BrandType, poQty, UOM, poCost, poAmount from v_po_item where (poCode='{0}')", PONo), 1, 9)
@@ -298,7 +298,7 @@ Public Class frm_100_PO
         For Each row As DataGridViewRow In dgDetails.Rows
             dgDetails.Rows.Remove(row)
         Next
-        
+
         ComputeAllRows()
     End Sub
 
@@ -349,5 +349,9 @@ Public Class frm_100_PO
             End If
 
         End If
+    End Sub
+
+    Private Sub Btnviewreport_Click(sender As Object, e As EventArgs)
+
     End Sub
 End Class

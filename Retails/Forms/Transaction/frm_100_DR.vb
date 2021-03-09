@@ -75,8 +75,8 @@ Public Class frm_100_DR
         Try
             If ErrProvider.CheckAndShowSummaryErrorMessage Then
 
-                If bolFormState = FormState.AddState And isRecordExist("Select poCode from tbl_100_PO where poCode='" & txtdrcode.Text & "'") Then
-                    ErrProvider.SetError(txtdrcode, "PO Number already exists.")
+                If bolFormState = FormState.AddState And isRecordExist("Select poCode from tbl_100_DR where poCode='" & cboPoCode.SelectedValue & "'") Then
+                    ErrProvider.SetError(cboPoCode, "PO Number already exists.")
 
                 ElseIf CountGridRows(dgDetails) = 0 Then
                     MsgBox("Empty item(s)!", MsgBoxStyle.Exclamation)
@@ -210,6 +210,7 @@ Public Class frm_100_DR
     Sub fillcombo()
         FillCombobox(cboVendor, "SELECT  SupplierID, SupplierName FROM  tbl_000_Supplier", "tbl_000_Location", "SupplierName", "SupplierID")
         FillCombobox(cboPoCode, "SELECT  poCode FROM  tbl_100_PO where (status='OPEN')", "tbl_100_PO", "poCode", "poCode")
+
     End Sub
 
     Sub ComputeAllRows()
@@ -273,7 +274,9 @@ Public Class frm_100_DR
         ResizeForm(Me)
         CenterControl(lblTitle, Me) 'center the title of the transaction
         Call fillcombo()
-
+        btnAdd.Visible = False
+        cboVendor.Enabled = False
+        btnRemove.Location = New Point(7, 19)
         With ErrProvider 'Get the error or empty text
             .Controls.Clear()
             .Controls.Add(txtdrcode, "DR Code")
@@ -358,4 +361,11 @@ Public Class frm_100_DR
         End If
     End Sub
 
+    Private Sub cboPoCode_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cboPoCode.SelectionChangeCommitted
+        FillGrid(dgDetails, "select ItemId as itemId, ItemCode, ItemName, ItemDescription, BrandType, poQty as  drQty, UOM, poCost as  drCost, poAmount as drAmount from v_po_item where poCode='" + cboPoCode.SelectedValue + "'", "v_po_item")
+
+
+        FillCombobox(cboVendor, "SELECT tbl_000_Supplier.SupplierID, tbl_000_Supplier.SupplierName FROM  tbl_000_Supplier " &
+                    "INNER JOIN tbl_100_PO ON tbl_000_Supplier.SupplierID = tbl_100_PO.poVendor WHERE tbl_100_PO.poCode='" + cboPoCode.SelectedValue + "'", "tbl_000_Supplier", "tbl_000_Supplier.SupplierName", "tbl_000_Supplier.SupplierID")
+    End Sub
 End Class

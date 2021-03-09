@@ -11,6 +11,7 @@ Public Class tbl_100_PO
     Private _closedDte As Date
     Private _totalCost As Decimal
     Private _status As String
+    Private _porefno As String
 
     Public Property poCode() As String
         Get
@@ -74,7 +75,14 @@ Public Class tbl_100_PO
             _status = value
         End Set
     End Property
-
+    Public Property porefno() As String
+        Get
+            Return _porefno
+        End Get
+        Set(ByVal value As String)
+            _porefno = value
+        End Set
+    End Property
 
 
     Public Function Save(ByVal isEdit As Boolean, ByVal dgSub As DataGridView) As Boolean
@@ -97,6 +105,7 @@ Public Class tbl_100_PO
                     .Parameters.Add(New SqlParameter("@closedDte", _closedDte))
                     .Parameters.Add(New SqlParameter("@totalCost", NZ(_totalCost)))
                     .Parameters.Add(New SqlParameter("@status", _status))
+                    .Parameters.Add(New SqlParameter("@porefno", _porefno))
                     .ExecuteNonQuery()
 
                 End With
@@ -134,7 +143,7 @@ Public Class tbl_100_PO
     Public Sub FetchRecord(ByVal pocode As String)
         Dim con As New SqlConnection(cnString)
         Dim rdr As SqlDataReader
-        Dim cmd As New SqlCommand(String.Format("SELECT     poCode, poVendor, orderDte, shippingDte, closedDte, totalCost, status " +
+        Dim cmd As New SqlCommand(String.Format("SELECT     poCode, poVendor, orderDte, shippingDte, closedDte, totalCost, status, porefno " +
                                     "FROM   tbl_100_PO where (poCode='{0}')", pocode), con)
 
         Try
@@ -150,7 +159,7 @@ Public Class tbl_100_PO
                 shippingDte = rdr("shippingDte")
                 closedDte = rdr("closedDte")
                 totalCost = rdr("totalCost")
-
+                porefno = rdr("porefno")
             End While
 
             rdr.Close()

@@ -308,7 +308,7 @@ Public Class frm_100_ReturnList
 
             Case "Refresh"
                 MainForm.tsSearch.Text = String.Empty
-                If TabControl1.SelectedIndex = "0" Then
+                If TabControl1.SelectedTab Is TabPage1 Then
                     Call RefreshRecord("sproc_100_return_list " & False & ",'" & MainForm.tsSearch.Text & "'")
                 ElseIf TabControl1.SelectedIndex = "1" Then
                     Call RefreshRecord2("sproc_100_return_list " & True & ",'" & MainForm.tsSearch.Text & "'")
@@ -348,7 +348,7 @@ Public Class frm_100_ReturnList
     Sub DeleteRecord()
         If vbYes = MsgBox("Are you sure you want to delete this Item?", MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Confirm Delete") Then
             Try
-                If TabControl1.TabIndex = "0" Then
+                If TabControl1.SelectedTab Is TabPage1 Then
                     Call DeleteReturnItem(dgList1.Item("colreturnId", dgList1.CurrentCell.RowIndex).Value)
                     Call SaveAuditTrail("Delete DR code", dgList1.Item("colreturnId", dgList1.CurrentCell.RowIndex).Value)
                     Call RefreshRecord("sproc_100_return_list " & False & ",'" & MainForm.tsSearch.Text & "'")

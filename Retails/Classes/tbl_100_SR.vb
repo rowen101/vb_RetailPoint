@@ -115,6 +115,7 @@ Public Class tbl_100_SR
                             .Parameters.Add(New SqlParameter("@Qty", CInt(row.Cells("Qty").Value)))
                             .Parameters.Add(New SqlParameter("@Cost", Decimal.Parse(row.Cells("colUnitPrice2").Value)))
                             .Parameters.Add(New SqlParameter("@SubAmt", Decimal.Parse(row.Cells("Subtotal").Value)))
+                            .Parameters.Add(New SqlParameter("@Cdate", DateTime.Now))
                             .ExecuteNonQuery()
 
                         End With
